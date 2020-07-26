@@ -179,6 +179,21 @@ if __name__ == "__main__":
         sent = sent.replace(' serves ', ' is served by ')
         sent = sent.replace(' kills ', ' is killed by ')
         sent = sent.replace(' reports ', ' is reported by ')
+        sent = sent.replace(' greet ', ' are greeted by ')
+        sent = sent.replace(' kick ', ' are kicked by ')
+        sent = sent.replace(' like ', ' are liked by ')
+        sent = sent.replace(' love ', ' are loved by ')
+        sent = sent.replace(' hate ', ' are hated by ')
+        sent = sent.replace(' know ', ' are known by ')
+        sent = sent.replace(' tell ', ' are told by ')
+        sent = sent.replace(' need ', ' are needed by ')
+        sent = sent.replace(' help ', ' are helped by ')
+        sent = sent.replace(' believe ', ' are believed by ')
+        sent = sent.replace(' hear ', ' are heard by ')
+        sent = sent.replace(' remember ', ' are remembered by ')
+        sent = sent.replace(' serve ', ' are served by ')
+        sent = sent.replace(' kill ', ' are killed by ')
+        sent = sent.replace(' report ', ' are reported by ')
         sentences_P.append(sent)
 
     sentences_M = []
@@ -196,6 +211,8 @@ if __name__ == "__main__":
     # print(sentences_M[0])
 
     all_sentences = [[o, n, a, p, m] for o, n, a, p, m in zip(sentences_O, sentences_N, sentences_A, sentences_P, sentences_M)]
+    for sents in all_sentences: print(sents)
+    exit()
 
     ranks = []
 
