@@ -94,7 +94,7 @@ if __name__ == "__main__":
         # -----------------------------------------------
         # Set device
         # torch.cuda.set_device(-1)
-        device = torch.device("cpu")
+        device = torch.device("cuda:0")
         args.device = device
         config = AutoConfig.from_pretrained(params["model_type"], cache_dir="./cache")
         config.output_hidden_states = True
