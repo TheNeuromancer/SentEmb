@@ -94,7 +94,10 @@ if __name__ == "__main__":
         # -----------------------------------------------
         # Set device
         # torch.cuda.set_device(-1)
-        device = torch.device("cuda:0")
+        if torch.cuda.is_available():
+            device = torch.device("cuda:0")
+        else:
+            device = torch.device("cpu")
         args.device = device
         config = AutoConfig.from_pretrained(params["model_type"], cache_dir="./cache")
         config.output_hidden_states = True
@@ -160,6 +163,22 @@ if __name__ == "__main__":
         sent = sent.replace('in front of', 'behind')
         sent = sent.replace(' above ', ' below ') # for enriched_sentences.txt
         sent = sent.replace(' on ', ' below ') # for tenenbaum_sentences.txt (original ones, not the best replacement ever ... but we don't know what they used in the paper)
+        # ACTIVE SENTENCES
+        sent = sent.replace(' greets ', ' is greeted by ')
+        sent = sent.replace(' kicks ', ' is kicked by ')
+        sent = sent.replace(' likes ', ' is liked by ')
+        sent = sent.replace(' loves ', ' is loved by ')
+        sent = sent.replace(' hates ', ' is hated by ')
+        sent = sent.replace(' knows ', ' is known by ')
+        sent = sent.replace(' tells ', ' is told by ')
+        sent = sent.replace(' needs ', ' is needed by ')
+        sent = sent.replace(' helps ', ' is helped by ')
+        sent = sent.replace(' believes ', ' is believed by ')
+        sent = sent.replace(' hears ', ' is heard by ')
+        sent = sent.replace(' remembers ', ' is remembered by ')
+        sent = sent.replace(' serves ', ' is served by ')
+        sent = sent.replace(' kills ', ' is killed by ')
+        sent = sent.replace(' reports ', ' is reported by ')
         sentences_P.append(sent)
 
     sentences_M = []
@@ -169,11 +188,12 @@ if __name__ == "__main__":
         # sent_M[0] = sent_M[0][1::] + sent_M[0][0]
         sentences_M.append(' '.join(sent_M))
 
-    # print(sentences_O)
-    # print(sentences_N)
-    # print(sentences_A)
-    # print(sentences_P)
-    # print(sentences_M)
+    # set_trace()
+    # print(sentences_O[0])
+    # print(sentences_N[0])
+    # print(sentences_A[0])
+    # print(sentences_P[0])
+    # print(sentences_M[0])
 
     all_sentences = [[o, n, a, p, m] for o, n, a, p, m in zip(sentences_O, sentences_N, sentences_A, sentences_P, sentences_M)]
 
