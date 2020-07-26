@@ -69,8 +69,8 @@ if __name__ == "__main__":
 
     # -----------------------------------------------
     # Set device
-    torch.cuda.set_device(-1)
-    device = torch.device("cuda", 0)
+    # torch.cuda.set_device(-1)
+    device = torch.device("cpu")
     args.device = device
 
     # -----------------------------------------------

@@ -1,4 +1,4 @@
-
+cache/
 *.zip
 SentEval/data/downstream/STS/STS15-en-test/STS.input.answers-forums.LICENSE
 SentEval/data/downstream/COCO/test.pkl
