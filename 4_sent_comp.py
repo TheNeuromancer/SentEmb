@@ -211,8 +211,8 @@ if __name__ == "__main__":
     # print(sentences_M[0])
 
     all_sentences = [[o, n, a, p, m] for o, n, a, p, m in zip(sentences_O, sentences_N, sentences_A, sentences_P, sentences_M)]
-    for sents in all_sentences: print(sents)
-    exit()
+    # for sents in all_sentences: print(sents)
+    # exit()
 
     ranks = []
 
